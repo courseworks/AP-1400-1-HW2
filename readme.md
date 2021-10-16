@@ -9,7 +9,7 @@ Advanced Programming - Homework 2
 Dr.Amir Jahanshahi
 </h2>
 <h3>
-Deadline: Friday, 27 Farvardin - 23:00
+Deadline: Friday, 4 Aban - 23:59
 </center>
 
 # Introduction
