@@ -25,8 +25,8 @@ namespace
     {
         auto table = read_csv("dataset.csv");
         auto publishers = definePublishers(&table)
-        EXPECT_EQ("",publishers[120]);
-        EXPECT_EQ("Dell",publishers[117]);
+        
+        EXPECT_EQ("Dell",publishers[210]);
         
     }
 
