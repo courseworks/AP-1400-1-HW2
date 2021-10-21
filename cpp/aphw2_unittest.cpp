@@ -16,18 +16,19 @@ namespace
     TEST(APHW1TEST,authors)
     {
         auto table = read_csv("dataset.csv");
-        auto authors = defineAuthors(&table);
-        EXPECT_EQ("Hawking",authors[4].getName());
-        EXPECT_EQ("Vladimir",authors[11].getName()); 
+        auto books = defineBooks(&table);
+        
+        EXPECT_EQ("Said, Edward",books[4].getAuthorName());
+        EXPECT_EQ("Vonnegut, Kurt",books[11].getAuthorName()); 
     }
 
     TEST(APHW1TEST,publisher)
     {
         auto table = read_csv("dataset.csv");
-        auto publishers = definePublishers(&table)
+        auto books = defineBooks(&table);
         
-        EXPECT_EQ("Dell",publishers[210]);
-        
+        EXPECT_EQ("Dell",books[210].getPublisherName());
+        EXPECT_EQ("Penguin",books[177].getPublisherName());
     }
 
     TEST(APHW1TEST,printTable)

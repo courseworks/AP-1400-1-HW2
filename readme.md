@@ -29,35 +29,13 @@ At first you need to define some classes:
 - Book
 - Author
 - Publisher 
-
-# Book Class
-This class represents each Book. It has the following method and member variables.
-
-```c++
-class Book{
-    public:
-        Book(std::string _title,
-             std::string _genre,
-             double _price);
-
-        void setAuthor(const Dataframe* table);
-        void setPublisher(const Datafram* table);
-    private:
-        std::string title;
-        std::string genre;
-        double price;
-
-        Author& authors;
-        std::unique_ptr<Publisher> publisher;
-};
-```
 # Author Class
 This class represents each Author. It has the following method and member variables.
 ```c++
 class Author{
     public:
         Author(std::string _name);
-        void setListOfBooks(Dataframe* table);
+        void setListOfBooks(std::vector<Book&> all_books);
     private:
         std::string name;
         std::vector<Book&> list_of_books;
@@ -70,7 +48,7 @@ This class represents each Publisher. It has the following method and member var
 class Publisher{
     public:
         Publisher(std::string _name);
-        void setListOfBooks(Dataframe* table);
+        void setListOfBooks(std::vector<Book&> all_books);
         
     private:
         std::string name;
@@ -79,11 +57,32 @@ class Publisher{
 };
 ```
 
-# Making Objects
-Ok after you define classes you need to create objects.Thus,you should at first define list of authors and list of publishers and then define list of Books.
+# Book Class
+This class represents each Book. It has the following method and member variables.
+
 ```c++
-std::vector<Author> defineAuthors(Dataframe* Table);
-std::vector<Publisher> definePublishers(Dataframe * Table);
+class Book{
+    public:
+        Book(std::string _title,
+             std::string _genre,
+             double _price,
+             Author& author,
+             std::unique_ptr<Publisher> publisher);
+
+        
+    private:
+        std::string title;
+        std::string genre;
+        double price;
+
+        Author& author;
+        std::unique_ptr<Publisher> publisher;
+};
+```
+
+# Making Objects
+Ok after you define classes you need to create objects.Thus, at first create and define all books from the table which you read by ```read_csv``` function.then set author's list of books and publisher's.
+```c++
 std::vector<Book> defineBooks(Dataframe* Table);
 ```
 
@@ -101,5 +100,5 @@ DO NOT change main.cpp.
 
 You should create <u>Makefile</u>.
 
-
+In unittest there are some methods that you need to add them in the classes. 
 </h3>
