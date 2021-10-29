@@ -33,7 +33,7 @@ namespace
 
     TEST(APHW1TEST,printTable)
     {
-        auto table = read_csv("scramble.csv");
+        auto table = read_csv("dataset.csv");
         showTable(&table,10,14);
     }
 
