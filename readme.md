@@ -67,7 +67,7 @@ class Book{
              std::string _genre,
              double _price,
              Author& author,
-             std::unique_ptr<Publisher> publisher);
+             std::shared_ptr<Publisher> publisher);
 
         
     private:
@@ -76,7 +76,7 @@ class Book{
         double price;
 
         Author& author;
-        std::unique_ptr<Publisher> publisher;
+        std::shared_ptr<Publisher> publisher;
 };
 ```
 
